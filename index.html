@@ -1,0 +1,107 @@
+<!-- index.html for GitHub Pages: ChartGPT landing page -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChartGPT — AI-Powered BI Copilot</title>
+  <meta name="description" content="ChartGPT turns natural language into SQL, KPIs, and interactive charts for modern teams." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1220;--card:#121a2b;--muted:#8aa0b3;--text:#e7eef8;--accent:#7dd3fc;--btn:#1f9cf0;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.5;color:var(--text);background:radial-gradient(1200px 600px at 80% -10%, #153059 0%, rgba(11,18,32,0) 60%), var(--bg);} 
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{font-weight:700;letter-spacing:.2px}
+    .badge{background:rgba(125,211,252,.15);color:#a5e7ff;border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:999px;font-size:12px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
+    @media (max-width:900px){.hero{grid-template-columns:1fr} .video{order:2}}
+    h1{font-size:40px;line-height:1.15;margin:0 0 12px}
+    p.lead{color:var(--muted);font-size:18px;margin:0 0 20px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+    .btn{background:var(--btn);color:white;padding:12px 16px;border-radius:12px;border:0;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(31,156,240,.25)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.14)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    h2{font-size:26px;margin:8px 0 12px}
+    footer{color:var(--muted);border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding:20px 0}
+    .tag{display:inline-block;background:#0d2038;border:1px solid rgba(125,211,252,.25);padding:4px 8px;border-radius:8px;color:#9ec7ff;margin-right:8px;font-size:12px}
+    .video{aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+    iframe{width:100%;height:100%;border:0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">ChartGPT</div>
+      <span class="badge">MVP live • Raising $100k–$500k</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Ask in plain English. <br/>Get SQL, KPIs, & interactive charts.</h1>
+        <p class="lead">ChartGPT is an AI-powered BI copilot. We convert natural-language questions into optimized SQL on your warehouse and return frontend-ready JSON for instant KPIs and visualizations.</p>
+        <div>
+          <span class="tag">FastAPI + GPT-4o</span>
+          <span class="tag">PostgreSQL (read-only)</span>
+          <span class="tag">React + Recharts</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="#demo">Watch product demo</a>
+          <a class="btn ghost" href="#deck">View pitch deck</a>
+        </div>
+      </div>
+      <div class="video" id="demo">
+        <!-- Replace the YOUTUBE_DEMO_ID below with your actual ID (the part after v=) -->
+        <iframe src="https://www.youtube.com/embed/YOUTUBE_DEMO_ID?rel=0" title="ChartGPT Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="grid" id="deck">
+      <div class="card">
+        <h2>Pitch Deck</h2>
+        <p class="lead">Concise overview of problem, solution, market, roadmap, and financials.</p>
+        <!-- Replace with your public deck URL -->
+        <p><a href="https://drive.google.com/your-public-deck-link" target="_blank" rel="noopener">Open pitch deck ↗</a></p>
+      </div>
+      <div class="card">
+        <h2>Founder Video</h2>
+        <p class="lead">2-minute intro covering vision, traction, and why now.</p>
+        <!-- Replace the YOUTUBE_FOUNDER_ID below -->
+        <p><a href="https://www.youtube.com/watch?v=YOUTUBE_FOUNDER_ID" target="_blank" rel="noopener">Watch founder intro ↗</a></p>
+      </div>
+      <div class="card">
+        <h2>Tech & Security</h2>
+        <p class="lead">Read-only SQL, no data writes. API-first architecture. Easily deployable.</p>
+        <ul>
+          <li>MVP backend: FastAPI, Uvicorn, psycopg2</li>
+          <li>LLM: OpenAI GPT-4o (pluggable providers)</li>
+          <li>Frontend: React + Vite + Recharts</li>
+          <li>Hosting targets: Backend (Render/Railway), Frontend (Vercel)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="lead">Interested investors and partners can reach us directly.</p>
+        <!-- Replace with your email and WhatsApp -->
+        <p>Email: <a href="mailto:founder@chartgpt.ai">founder@chartgpt.ai</a></p>
+        <p>WhatsApp: <a href="https://wa.me/1234567890" target="_blank" rel="noopener">Message us</a></p>
+        <p>GitHub: <a href="https://github.com/your-org-or-user/chartgpt" target="_blank" rel="noopener">Repository ↗</a></p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> ChartGPT · All rights reserved
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

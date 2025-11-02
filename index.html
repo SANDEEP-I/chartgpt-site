@@ -1,108 +1,760 @@
-<!-- index.html for GitHub Pages: ChartGPT landing page -->
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChartGPT — AI-Powered BI Copilot</title>
-  <meta name="description" content="ChartGPT turns natural language into SQL, KPIs, and interactive charts for modern teams." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="ChartGPT turns natural-language questions into instant business insights — KPIs, charts, tables, and reports — without dashboards or SQL." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root{--bg:#0b1220;--card:#121a2b;--muted:#8aa0b3;--text:#e7eef8;--accent:#7dd3fc;--btn:#1f9cf0;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;line-height:1.5;color:var(--text);background:radial-gradient(1200px 600px at 80% -10%, #153059 0%, rgba(11,18,32,0) 60%), var(--bg);} 
-    a{color:var(--accent);text-decoration:none}
-    .wrap{max-width:1080px;margin:0 auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .logo{font-weight:700;letter-spacing:.2px}
-    .badge{background:rgba(125,211,252,.15);color:#a5e7ff;border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:999px;font-size:12px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:32px 0}
-    @media (max-width:900px){.hero{grid-template-columns:1fr} .video{order:2}}
-    h1{font-size:40px;line-height:1.15;margin:0 0 12px}
-    p.lead{color:var(--muted);font-size:18px;margin:0 0 20px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
-    .btn{background:var(--btn);color:white;padding:12px 16px;border-radius:12px;border:0;font-weight:600;cursor:pointer;box-shadow:0 10px 30px rgba(31,156,240,.25)}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.14)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    h2{font-size:26px;margin:8px 0 12px}
-    footer{color:var(--muted);border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding:20px 0}
-    .tag{display:inline-block;background:#0d2038;border:1px solid rgba(125,211,252,.25);padding:4px 8px;border-radius:8px;color:#9ec7ff;margin-right:8px;font-size:12px}
-    .video{aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
-    iframe{width:100%;height:100%;border:0}
+    .anchor-section { scroll-margin-top: 80px; }
+
+    :root {
+      --bg-start:#f7f9fc;
+      --bg-end:#eef3fb;
+      --surface:#ffffff;
+      --border:#e5ecf6;
+      --text:#0f172a;
+      --muted:#5e6b84;
+      --accent:#2563eb;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+      background:radial-gradient(circle at 20% 20%,rgba(37,99,235,.06)0%,rgba(255,255,255,0)60%),linear-gradient(180deg,var(--bg-start),var(--bg-end));
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 2px 6px rgba(0,0,0,.03);
+      z-index:10;
+    }
+
+    .header-inner{
+      max-width:1140px;
+      margin:0 auto;
+      padding:12px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      row-gap:12px;
+    }
+
+    /* 3-zone header: left logo, center nav, right badge */
+    .header-left{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+    }
+
+    .logo{
+      font-weight:800;
+      font-size:22px;
+      color:var(--accent);
+      white-space:nowrap;
+      line-height:1.2;
+    }
+
+    .header-center{
+      flex:1 1 auto;
+      display:flex;
+      justify-content:center;
+      min-width:260px;
+    }
+
+    nav{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+      font-size:15px;
+      position:relative;
+      line-height:1.4;
+    }
+
+    /* subtle hover underline */
+    nav a::after{
+      content:'';
+      position:absolute;
+      bottom:-3px;
+      left:0;
+      width:0;
+      height:2px;
+      background:var(--accent);
+      transition:width .2s ease;
+      border-radius:2px;
+    }
+    nav a:hover::after{width:100%;}
+
+    .header-right{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+    }
+
+    .badge{
+      background:#eef4ff;
+      color:var(--accent);
+      padding:6px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      line-height:1.4;
+      white-space:nowrap;
+      box-shadow:0 10px 30px rgba(37,99,235,.08);
+    }
+
+    @media(max-width:800px){
+      .header-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .header-left{
+        width:100%;
+        display:flex;
+        justify-content:flex-start;
+      }
+      .header-center{
+        width:100%;
+        order:3;
+        justify-content:flex-start;
+      }
+      .header-right{
+        width:100%;
+        order:2;
+        justify-content:flex-start;
+      }
+      nav{
+        row-gap:8px;
+        column-gap:16px;
+        flex-wrap:wrap;
+        margin-top:4px;
+      }
+    }
+
+    /* PAGE WRAP */
+    .wrap{
+      max-width:1140px;
+      margin:0 auto;
+      padding:28px;
+    }
+
+    h1{
+      font-size:42px;
+      line-height:1.25;
+      font-weight:700;
+      margin-bottom:16px;
+      color:var(--text);
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:17px;
+      margin-bottom:14px;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr; /* gives video a bit more real estate */
+      gap:32px;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      margin:20px 0;
+      flex-wrap:wrap;
+    }
+    @media(max-width:900px){
+      .cta-row{justify-content:center;}
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      transition:all .25s ease;
+      box-shadow:0 10px 30px rgba(37,99,235,.18);
+      font-size:14px;
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 36px rgba(37,99,235,.25);
+    }
+
+    .btn-outline{
+      background:#fff;
+      color:var(--text);
+      border:1px solid var(--border);
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:600;
+      cursor:pointer;
+      transition:all .25s ease;
+      font-size:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.03);
+    }
+    .btn-outline:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 36px rgba(0,0,0,.07);
+    }
+
+    /* pill cluster */
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:12px;
+      max-width:520px;
+    }
+    @media(min-width:901px){
+      .pill-row{justify-content:flex-start;}
+    }
+
+    .pill{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:12px 22px;
+      font-weight:600;
+      font-size:15px;
+      color:var(--text);
+      box-shadow:0 2px 6px rgba(0,0,0,.03);
+      transition:all .2s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 16px rgba(0,0,0,.08);
+    }
+
+    /* VIDEO CARD */
+    .video{
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:28px;
+      box-shadow:0 24px 40px rgba(0,0,0,.06);
+      position:relative;
+    }
+
+    .video-inner{
+      width:100%;
+      max-width:600px; /* wider video content */
+    }
+
+    .video-top-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:10px;
+      font-weight:600;
+      color:#1e293b;
+      margin-bottom:16px;
+      font-size:15px;
+      line-height:1.4;
+    }
+
+    .mvp-chip{
+      background:#eef4ff;
+      border:1px solid #dbe3ff;
+      color:var(--accent);
+      font-size:12px;
+      font-weight:600;
+      border-radius:999px;
+      padding:4px 10px;
+      line-height:1.2;
+      box-shadow:0 8px 20px rgba(37,99,235,.15);
+    }
+
+    .video-frame{
+      border-radius:12px;
+      overflow:hidden;
+      aspect-ratio:16/9;
+      background:#000;
+      border:1px solid var(--border);
+      box-shadow:0 8px 20px rgba(0,0,0,.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .youtube-play svg{
+      width:100px;
+      height:auto;
+      transition:transform .25s ease;
+    }
+    .youtube-play:hover svg{
+      transform:scale(1.08);
+    }
+
+    .video small{
+      display:block;
+      margin-top:16px;
+      color:#1e293b;            /* darker for visibility */
+      font-size:13px;           /* bumped up */
+      font-weight:600;          /* emphasized */
+      line-height:1.4;
+      font-style:italic;
+    }
+
+    /* SECTION HEADERS */
+    .section-block{margin-top:64px;}
+    .section-title{
+      text-align:center;
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:8px;
+      color:var(--text);
+    }
+    .section-eyebrow{
+      text-align:center;
+      color:#64748b;
+      font-size:15px;
+      margin-bottom:26px;
+      line-height:1.4;
+      max-width:780px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    /* GRID / CARD LAYOUT */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:22px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:22px;
+      box-shadow:0 2px 10px rgba(0,0,0,.03);
+    }
+
+    .card h2{
+      font-size:18px;
+      margin-bottom:8px;
+      line-height:1.4;
+      color:var(--text);
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    /* FOUNDER CARD */
+    .founder-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:22px 24px;
+      box-shadow:0 2px 10px rgba(0,0,0,.03);
+      max-width:900px;
+      margin:0 auto;
+    }
+    .founder-card p{
+      color:var(--text);
+      font-size:15px;
+      line-height:1.55;
+      margin-bottom:12px;
+    }
+    .founder-card ul{
+      margin-left:18px;
+      margin-bottom:12px;
+    }
+    .founder-card li{
+      color:var(--text);
+      font-size:15px;
+      line-height:1.5;
+      margin-bottom:6px;
+    }
+    .founder-quote{
+      margin-top:14px;
+      font-size:13px;
+      color:#64748b;
+      font-style:italic;
+    }
+
+    /* FAQ */
+    .faq-wrap{max-width:900px;margin:0 auto;}
+    details{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:16px 20px;
+      box-shadow:0 2px 8px rgba(0,0,0,.03);
+      transition:all .2s ease;
+    }
+    details+details{margin-top:12px;}
+    summary{
+      cursor:pointer;
+      font-weight:600;
+      color:var(--text);
+      list-style:none;
+      position:relative;
+      padding-left:20px;
+      font-size:15px;
+      line-height:1.4;
+    }
+    summary::before{
+      content:"▶";
+      position:absolute;
+      left:0;
+      top:2px;
+      font-size:12px;
+      color:var(--text);
+      transition:transform .2s ease;
+    }
+    details[open] summary::before{
+      transform:rotate(90deg);
+    }
+    details p{
+      color:var(--muted);
+      margin-top:8px;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    /* CONTACT */
+    .contact-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:30px 24px;
+      box-shadow:0 4px 16px rgba(0,0,0,.05);
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .contact-card h3{
+      font-size:22px;
+      font-weight:700;
+      margin-bottom:10px;
+      color:var(--text);
+    }
+    .contact-card p{
+      margin:6px 0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .contact-card a{
+      color:var(--accent);
+      font-weight:600;
+      text-decoration:none;
+    }
+    .contact-card a:hover{
+      text-decoration:underline;
+    }
+
+    footer{
+      text-align:center;
+      font-size:13px;
+      color:#94a3b8;
+      margin:60px 0 20px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">ChartGPT</div>
-      <span class="badge">MVP live • Raising $100k–$500k</span>
-    </header>
 
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="logo">ChartGPT</div>
+      </div>
+
+      <div class="header-center">
+        <nav>
+          <a href="#why">Why</a>
+          <a href="#ai-roadmap">Roadmap &amp; AI</a>
+          <a href="#founder">Founder</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <span class="badge">MVP Live • sandeep@chartgpt.cloud</span>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- HERO -->
     <section class="hero">
       <div>
-        <h1>Ask in plain English. <br/>Get SQL, KPIs, & interactive charts.</h1>
-        <p class="lead">ChartGPT is an AI-powered BI copilot. We convert natural-language questions into optimized SQL on your warehouse and return frontend-ready JSON for instant KPIs and visualizations.</p>
-        <div>
-          <span class="tag">FastAPI + GPT-4o</span>
-          <span class="tag">PostgreSQL (read-only)</span>
-          <span class="tag">React + Recharts</span>
-        </div>
+        <h1>From Data to Decisions — Instantly.</h1>
+
+        <p class="lead"><strong>“The future of analytics is search-driven, intelligent, and effortless.”</strong></p>
+
+        <p class="lead">
+          Users can ask questions in natural language and get
+          <strong>instant insights</strong> as KPIs, charts, tables, or reports —
+          without dashboards, filters, or SQL.
+        </p>
+
         <div class="cta-row">
-          <a class="btn" href="#demo">Watch product demo</a>
-          <a class="btn ghost" href="#deck">View pitch deck</a>
+          <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">
+  Watch Demo
+</a>
+          <button class="btn-outline">View Roadmap</button>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Ask in Natural Language</span>
+          <span class="pill">Instant Charts &amp; KPIs</span>
+          <span class="pill">Dynamic Dashboards</span>
+          <span class="pill">Ad-hoc Reports</span>
+          <span class="pill">Enterprise-Ready BI</span>
         </div>
       </div>
-      <div class="video" id="demo">
-        <!-- Replace the YOUTUBE_DEMO_ID below with your actual ID (the part after v=) -->
-        <iframe src="https://www.youtube.com/embed/YOUTUBE_DEMO_ID?rel=0" title="ChartGPT Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+      <div class="video">
+        <div class="video-inner">
+          <div class="video-top-row">
+            <span>Demo Video — Built on Our MVP</span>
+            <span class="mvp-chip">MVP Live</span>
+          </div>
+
+<div class="video-frame">
+  <iframe
+    src="https://www.youtube.com/embed/ah6EDlP_QCY"
+    title="ChartGPT MVP Demo"
+    width="100%"
+    height="100%"
+    style="border:0; width:100%; height:100%;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+
+          <small>This demo runs on the live MVP — built end-to-end by the founder.</small>
+        </div>
       </div>
     </section>
 
-    <section class="grid" id="deck">
-      <div class="card">
-        <h2>Pitch Deck</h2>
-        <p class="lead">Concise overview of problem, solution, market, roadmap, and financials.</p>
-        <!-- Replace with your public deck URL -->
-        <p><a href="https://drive.google.com/your-public-deck-link" target="_blank" rel="noopener">Open pitch deck ↗</a></p>
+    <!-- WHY -->
+    <section id="why" class="section-block anchor-section">
+      <h2 class="section-title">Why the Market Needs ChartGPT</h2>
+      <p class="section-eyebrow">
+        Traditional BI is rigid, complex, and underused. ChartGPT makes analytics feel human —
+        fast, conversational, and instantly useful.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h2>Low Adoption, Lost Value</h2>
+          <p>Companies spend heavily on BI, but most teams still struggle to get answers when they need them. Most users don’t want dashboards or filters — they just want clear answers.</p>
+        </div>
+        <div class="card">
+          <h2>Side-Hustle Analytics</h2>
+          <p>Even after dashboards are shipped, teams keep asking for fresh cuts, extra KPIs, new visuals, and exports for meetings. This creates a constant stream of manual work.</p>
+        </div>
+        <div class="card">
+          <h2>Ask → Answer, Instantly</h2>
+          <p>ChartGPT ends the back-and-forth. Ask in natural language and get KPIs, charts, tables, or reports immediately. Fewer iterations, faster decisions, higher productivity.</p>
+        </div>
+        <div class="card">
+          <h2>Dynamic, Not Static</h2>
+          <p>Instead of one static dashboard for everyone, ChartGPT can generate tailored dashboards and ad-hoc reports on demand for any stakeholder, any department.</p>
+        </div>
+        <div class="card">
+          <h2>Fragmented Data Today</h2>
+          <p>Teams juggle dashboards, spreadsheets, data warehouses, and line-of-business tools that don’t talk to each other. ChartGPT becomes the single conversational layer across all of it.</p>
+        </div>
+        <div class="card">
+          <h2>Built for Every Team &amp; Industry</h2>
+          <p>Sales, Finance, HR, Operations — plus industry use cases like Retail, Manufacturing, and D2C Commerce. ChartGPT adapts to the language and KPIs each team already uses.</p>
+        </div>
       </div>
-      <div class="card">
-        <h2>Founder Video</h2>
-        <p class="lead">2-minute intro covering vision, traction, and why now.</p>
-        <!-- Replace the YOUTUBE_FOUNDER_ID below -->
-        <p><a href="https://www.youtube.com/watch?v=YOUTUBE_FOUNDER_ID" target="_blank" rel="noopener">Watch founder intro ↗</a></p>
+    </section>
+
+    <!-- AI INTELLIGENCE ROADMAP -->
+    <section id="ai-roadmap" class="section-block anchor-section">
+      <h2 class="section-title">AI Intelligence Roadmap</h2>
+      <p class="section-eyebrow">
+        How ChartGPT evolves from “ask a question, get a chart” into an intelligent copilot that
+        reasons about the business, not just the data.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h2>1. Unified Data &amp; Knowledge Layer</h2>
+          <p>Secure connectors for warehouses, SaaS apps, spreadsheets, and operational systems. Metadata, field meanings, and business definitions are captured so the AI always answers with governed, trustworthy context.</p>
+        </div>
+        <div class="card">
+          <h2>2. Transformation &amp; Modeling</h2>
+          <p>Visual pipelines for joins, filters, calculated metrics, and semantic tagging. KPIs are defined once — like net sales, gross margin %, store sell-through — and reused consistently across the business.</p>
+        </div>
+        <div class="card">
+          <h2>3. Retrieval-Augmented Insights (RAG)</h2>
+          <p>ChartGPT uses Retrieval-Augmented Generation (RAG) to pull the most relevant metrics, definitions, narratives, and historical trends in real time and ground every answer. That means responses are explainable, auditable, and specific to your business — not generic LLM guesses.</p>
+        </div>
+        <div class="card">
+          <h2>4. Multi-Agent Copilot</h2>
+          <p>Specialized AI agents cooperate: one interprets the question, one plans the analysis, one runs the data pull, one explains results. Complex questions (“why did revenue drop last week?”) become multi-step investigations, on demand.</p>
+        </div>
+        <div class="card">
+          <h2>5. Narrative &amp; Executive Summaries</h2>
+          <p>Beyond charts. The copilot explains drivers, anomalies, trends, and risks in plain language. It can generate meeting-ready talking points and variance commentary for leadership automatically.</p>
+        </div>
+        <div class="card">
+          <h2>6. Governance &amp; Safety</h2>
+          <p>Role-aware access, read-only execution, data minimization, and compliance-grade audit trails. The goal is enterprise-grade BI you can actually ship to non-technical users confidently.</p>
+        </div>
       </div>
-      <div class="card">
-        <h2>Tech & Security</h2>
-        <p class="lead">Read-only SQL, no data writes. API-first architecture. Easily deployable.</p>
+    </section>
+
+    <!-- CORE PRODUCT ROADMAP -->
+    <section id="bi-roadmap" class="section-block anchor-section">
+      <h2 class="section-title">Core Product Roadmap</h2>
+      <p class="section-eyebrow">
+        The product we’re building and shipping in stages — the practical BI stack teams can start
+        using immediately.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h2>1. Data Connection Layer</h2>
+          <p>Pluggable connectors for databases, warehouses, and SaaS platforms. Secure, read-only access so teams can query live data without risky exports.</p>
+        </div>
+        <div class="card">
+          <h2>2. Data Prep &amp; Modeling Studio</h2>
+          <p>Join, filter, enrich, and calculate measures visually. Create reusable business metrics and a semantic layer that every team speaks consistently.</p>
+        </div>
+        <div class="card">
+          <h2>3. Adaptive Dashboards &amp; Visualization</h2>
+          <p>Drag-and-drop dashboards with AI-assisted layout, smart chart defaults, and auto-generated summaries for storytelling. Zero manual formatting.</p>
+        </div>
+        <div class="card">
+          <h2>4. Conversational BI Copilot</h2>
+          <p>Ask questions in plain English and get instant KPIs, charts, tables, or narratives. The copilot can surface anomalies, drivers, and trends without manual slicing.</p>
+        </div>
+        <div class="card">
+          <h2>5. Collaboration &amp; Sharing</h2>
+          <p>Workspaces with access control, version history, and secure share links. Stakeholders can review insights together, agree on the story, and move decisions faster.</p>
+        </div>
+        <div class="card">
+          <h2>6. Department &amp; Industry Templates</h2>
+          <p>Pre-built analytics packs for Sales, Marketing, Finance, HR, Ops, and more — including vertical-specific starter kits — so teams get value in days, not months.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section id="founder" class="section-block anchor-section">
+      <h2 class="section-title">Founder</h2>
+      <div class="founder-card">
+        <p><strong>Sandeep Ilangovan</strong> — BI Developer &amp; Data Scientist from Chennai, India. 7+ years building end-to-end analytics solutions across diverse industries and large organizations.</p>
+
+        <p>Hands-on with stakeholders in Sales, Marketing, Finance, HR, and Operations — seeing firsthand how dashboard-centric BI tools create friction between data teams and business users — and fail to deliver insights instantly when they’re needed most. That ground-level exposure across teams inspired me to create ChartGPT.</p>
+
         <ul>
-          <li>MVP backend: FastAPI, Uvicorn, psycopg2</li>
-          <li>LLM: OpenAI GPT-4o (pluggable providers)</li>
-          <li>Frontend: React + Vite + Recharts</li>
-          <li>Hosting targets: Backend (Render/Railway), Frontend (Vercel)</li>
+          <li><strong>Track record:</strong> Delivered full-stack BI projects and was recognized with multiple awards for impact and quality.</li>
+          <li><strong>Built the MVP solo:</strong> backend, frontend, and AI integration — already live and demoable.</li>
+          <li><strong>Certifications:</strong> Qlik Sense Data Architect, Power BI Data Analyst, Alteryx Designer, Google Cloud ML Engineer.</li>
         </ul>
+
+        <p class="founder-quote">“The future of analytics is search-driven, intelligent, and effortless.”</p>
       </div>
     </section>
 
-    <section style="margin-top:28px">
-      <div class="card">
-        <h2>Contact</h2>
-        <p class="lead">Interested investors and partners can reach us directly.</p>
-        <!-- Replace with your email and WhatsApp -->
-        <p>Email: <a href="mailto:founder@chartgpt.ai">founder@chartgpt.ai</a></p>
-        <p>WhatsApp: <a href="https://wa.me/1234567890" target="_blank" rel="noopener">Message us</a></p>
-        <p>GitHub: <a href="https://github.com/your-org-or-user/chartgpt" target="_blank" rel="noopener">Repository ↗</a></p>
+    <!-- FAQ -->
+    <section id="faq" class="section-block anchor-section">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-eyebrow">Quick answers to common investor questions.</p>
+
+      <div class="faq-wrap">
+        <details>
+          <summary>How is ChartGPT different from a simple SQL generator?</summary>
+          <p>ChartGPT is not just “text → SQL.” It connects to live data sources, applies business definitions, generates visuals, and explains why numbers move. It acts like an analyst, not just a query engine.</p>
+        </details>
+
+        <details>
+          <summary>What’s already live in the MVP?</summary>
+          <p>Natural-language Q&amp;A on a live database. Users ask questions like “Show revenue by region” or “Top 5 products by quantity sold,” and instantly get KPIs, charts, or tables. The public demo video is running on this exact build.</p>
+        </details>
+
+        <details>
+          <summary>What’s next after funding?</summary>
+          <p>
+            Expand from the current conversational insight layer to a full BI stack — integrating:
+            <br><br>
+            • <strong>Data Connectors &amp; Prep Studio:</strong> visual pipelines for joins, filters, and calculated fields.<br>
+            • <strong>Semantic &amp; Modeling Layer:</strong> governed metrics, hierarchies, synonyms, and data relationships for accurate context.<br>
+            • <strong>Adaptive Dashboard Layer:</strong> dynamic templates that evolve based on department usage.<br>
+            • <strong>AI Orchestration Layer:</strong> RAG-powered reasoning agents for query planning, trend analysis, and narrative generation.<br>
+            • <strong>Department Templates:</strong> pre-built packs for Sales, Finance, HR, and Operations for instant adoption.<br><br>
+            These build toward an AI-native BI Copilot that unifies traditional data modeling with generative reasoning.
+          </p>
+        </details>
+
+        <details>
+          <summary>How will the raise be used?</summary>
+          <p>
+            • <strong>45% Product &amp; Engineering:</strong> build the full BI stack (connectors, modeling, dashboard studio) and mature the AI Copilot (retrieval, multi-agent reasoning, explainability).<br>
+            • <strong>25% Infrastructure &amp; Security:</strong> scale compute, optimize RAG performance, enforce data governance and compliance.<br>
+            • <strong>20% GTM &amp; Design:</strong> early go-to-market pilots, partner demos, UX refinement, and industry-specific templates.<br>
+            • <strong>10% Legal &amp; Operations:</strong> incorporation, contracts, IP, and compliance readiness.<br><br>
+            The goal is to reach an enterprise-ready pilot inside the first set of paying teams.
+          </p>
+        </details>
       </div>
     </section>
 
-    <footer>
-      © <span id="y"></span> ChartGPT · All rights reserved
-    </footer>
+    <!-- CONTACT -->
+    <section id="contact" class="section-block anchor-section">
+      <div class="contact-card">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:sandeep@chartgpt.cloud">sandeep@chartgpt.cloud</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sandeep-ilangovan" target="_blank" rel="noopener noreferrer">linkedin.com/in/sandeep-ilangovan</a></p>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> ChartGPT · Built by Sandeep Ilangovan</footer>
   </div>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

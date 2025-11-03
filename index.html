@@ -932,7 +932,17 @@ a.btn-primary, a.btn-outline,
   .value-trio { flex-wrap: wrap !important; }  /* mobile stays wrapped */
 }
 
+/* Subtle divider under hero */
+.hero::after{
+  content:"";
+  display:block;
+  height:1px;
+  background: linear-gradient(90deg, rgba(15,23,42,.06), rgba(15,23,42,.02) 40%, rgba(15,23,42,0));
+  margin: 28px 0 0;      /* space above the line */
+}
 
+    /* Slightly closer title to the cards (more cohesive block) */
+#why.section-block { margin-top: 48px !important; }
   </style>
 </head>
 <body>

@@ -818,6 +818,44 @@ h1 { font-size: clamp(38px, 4.5vw, 56px) !important; line-height: 1.12 !importan
 .card p { flex: 1 !important; }
 .card:hover { box-shadow: 0 8px 26px rgba(2,6,23,.08) !important; transform: translateY(-1px) !important; }
 
+    /* Pitch-style hero headline + trio */
+.eyebrow{
+  font-weight: 800;
+  font-size: 28px;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.tagline{
+  font-size: clamp(28px, 3.4vw, 42px);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.value-trio{
+  display: flex; flex-wrap: wrap; gap: 10px 12px;
+  margin: 12px 0 8px; padding: 0; list-style: none;
+}
+.value-trio li{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+/* Remove accidental underline on button anchors */
+.btn-primary, .btn-outline { text-decoration: none; }
+.btn-primary:hover, .btn-outline:hover { text-decoration: none; }
+
+/* Mobile alignment for the new trio */
+@media (max-width: 900px){
+  .value-trio{ justify-content: center; }
+}
+
     
 
 

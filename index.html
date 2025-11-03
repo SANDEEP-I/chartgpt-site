@@ -1055,6 +1055,70 @@ html {
 .contact-card { animation-delay: 0.4s; }
 
 
+    /* --- Hero fine-tuning (keeps video on the right, cleaner rhythm) --- */
+.hero{
+  grid-template-columns: 1.18fr 1fr !important;  /* a touch more room for copy */
+  align-items: center !important;
+  gap: 48px !important;
+  margin: 12px 0 72px !important;               /* good air before "Why" */
+}
+.hero > div:first-child{ max-width: 640px !important; }
+
+.tagline{ margin-bottom: 14px !important; }
+.lead{ margin-top: 6px !important; margin-bottom: 14px !important; }
+.cta-row{ margin-top: 18px !important; margin-bottom: 18px !important; }
+
+.video-inner{ max-width: 720px !important; }
+.video{ margin-top: 6px !important; } /* aligns better with headline baseline */
+
+
+/* --- Turn the 5 chips into a neat, even ribbon + add icons --- */
+.pill-row{
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0,1fr)) !important; /* 5-up on desktop */
+  gap: 12px !important;
+  max-width: none !important;
+  margin-top: 14px !important;
+}
+@media (max-width: 1100px){
+  .pill-row{
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) !important;
+  }
+}
+
+.pill{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(15,23,42,.06) !important;
+  background: linear-gradient(#ffffff, #f9fbff) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04) !important;
+  font-size: 14px !important;
+  white-space: nowrap !important;
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+.pill:hover{
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08) !important;
+}
+
+/* Icons via CSS — no HTML changes needed */
+.pill-row .pill::before{
+  font-size: 16px;
+  line-height: 1;
+  display: inline-block;
+}
+.pill-row .pill:nth-child(1)::before{ content: "💬"; } /* Ask in Natural Language */
+.pill-row .pill:nth-child(2)::before{ content: "📊"; } /* Instant Charts & KPIs */
+.pill-row .pill:nth-child(3)::before{ content: "📈"; } /* Dynamic Dashboards */
+.pill-row .pill:nth-child(4)::before{ content: "🧾"; } /* Ad-hoc Reports */
+.pill-row .pill:nth-child(5)::before{ content: "🏢"; } /* Enterprise-Ready BI */
+
+
+
   </style>
 </head>
 <body>
@@ -1105,10 +1169,11 @@ html {
           without dashboards, filters, or SQL.
         </p>
 
-        <div class="cta-row">
-          <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">
-  Watch Demo
-</a>
+<div class="cta-row">
+  <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">Watch Demo</a>
+  <a class="btn-outline" href="#ai-roadmap">View Roadmap</a>
+</div>
+
           <button class="btn-outline">View Roadmap</button>
         </div>
 

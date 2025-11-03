@@ -943,6 +943,73 @@ a.btn-primary, a.btn-outline,
 
     /* Slightly closer title to the cards (more cohesive block) */
 #why.section-block { margin-top: 48px !important; }
+
+    /* --- Enhanced contact section --- */
+.contact-card {
+  background: #fff;
+  border: 1px solid rgba(15,23,42,.06);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.03), 0 12px 30px rgba(2,6,23,.04);
+  padding: 32px 28px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  border: 1px solid rgba(15,23,42,.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+
+.contact-btn.email {
+  background: #eef4ff;
+  color: #1d4ed8;
+}
+.contact-btn.email:hover {
+  background: #dbe8ff;
+  box-shadow: 0 6px 20px rgba(37,99,235,.1);
+}
+
+.contact-btn.linkedin {
+  background: #f0f9ff;
+  color: #0369a1;
+}
+.contact-btn.linkedin:hover {
+  background: #e0f2fe;
+  box-shadow: 0 6px 20px rgba(3,105,161,.1);
+}
+
+.contact-note {
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
   </style>
 </head>
 <body>
@@ -1205,13 +1272,21 @@ a.btn-primary, a.btn-outline,
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-block anchor-section">
-      <div class="contact-card">
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:sandeep@chartgpt.cloud">sandeep@chartgpt.cloud</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/sandeep-ilangovan" target="_blank" rel="noopener noreferrer">linkedin.com/in/sandeep-ilangovan</a></p>
-      </div>
-    </section>
+<section id="contact" class="section-block anchor-section">
+  <div class="contact-card">
+    <h3>Contact &amp; Connect</h3>
+    <div class="contact-actions">
+      <a href="mailto:sandeep@chartgpt.cloud" class="contact-btn email">
+        📧 sandeep@chartgpt.cloud
+      </a>
+      <a href="https://www.linkedin.com/in/sandeep-ilangovan" target="_blank" rel="noopener noreferrer" class="contact-btn linkedin">
+        🔗 LinkedIn Profile
+      </a>
+    </div>
+    <p class="contact-note">For investor or accelerator queries — reach out directly or connect via LinkedIn.</p>
+  </div>
+</section>
+
 
     <footer>© <span id="y"></span> ChartGPT · Built by Sandeep Ilangovan</footer>
   </div>

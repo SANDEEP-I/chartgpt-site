@@ -1269,6 +1269,33 @@ html {
 html { scroll-behavior: smooth; }
 .btn-primary, .btn-outline { text-decoration: none; display: inline-block; }
 
+    /* === HERO DE-CLUTTER (only the left text stack) === */
+.hero > div:first-child { max-width: 640px !important; }
+
+/* Eyebrow + Title */
+.eyebrow { margin-bottom: 8px !important; color: #1f2937 !important; }
+.tagline  { line-height: 1.15 !important; margin-bottom: 12px !important; }
+
+/* The 3 chips under the title */
+.value-trio { gap: 8px 10px !important; margin: 10px 0 14px !important; }
+.value-trio li {
+  padding: 8px 12px !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+}
+
+/* Two lead paragraphs */
+.lead { max-width: 620px !important; line-height: 1.7 !important; }
+.lead:first-of-type { margin-top: 6px !important; margin-bottom: 8px !important; }
+.lead + .lead      { margin-top: 4px !important; margin-bottom: 12px !important; }
+
+/* CTA spacing */
+.cta-row { margin: 16px 0 14px !important; gap: 12px !important; }
+
+/* The 5 feature pills row */
+.pill-row { max-width: 600px !important; gap: 10px 12px !important; margin-top: 16px !important; }
+.pill     { padding: 10px 14px !important; font-size: 14px !important; }
+
 
   </style>
 </head>

@@ -1174,6 +1174,32 @@ html { scroll-behavior: smooth; }
 /* Small spacing tweak so the video sits comfortably */
 .video { margin-top: 0; }
 
+    /* 1) Balance the hero columns a touch + keep video comfortably sized */
+.hero{grid-template-columns:1.08fr 1fr;}
+.video-inner{max-width:660px;}         /* keeps iframe crisp without overpowering */
+.video{margin-top:4px;}               /* aligns a bit better with your H1 baseline */
+
+/* 2) Make the 5 feature chips feel like one deliberate ribbon */
+.feature-row{
+  max-width:680px;                    /* slightly wider than copy line length */
+  grid-template-columns:repeat(5,minmax(0,1fr));  /* force 5-up on desktop */
+}
+@media (max-width:1100px){
+  .feature-row{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+}
+.feature{height:48px;}                /* consistent height */
+.feature span{min-width:18px;text-align:center;}
+
+/* 3) Subtle divider before the “Why” section for hierarchy */
+.hero{margin-bottom:56px;}
+.hero::after{
+  content:"";
+  display:block;
+  height:1px;
+  margin-top:44px;
+  background:linear-gradient(90deg, rgba(15,23,42,0), rgba(15,23,42,.08), rgba(15,23,42,0));
+}
+
 
   </style>
 </head>

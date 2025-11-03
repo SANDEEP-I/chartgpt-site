@@ -921,7 +921,16 @@ a.btn-primary, a.btn-outline,
 /* Keep video comfortable with the narrower right column */
 .video-inner{ max-width: 700px !important; }
 
-    
+    /* add at the end of <style> */
+.video { margin-top: 6px !important; }
+.hero { margin-bottom: 76px !important; }  /* slightly more air before the Why section *
+
+    /* add at the end of <style> */
+.value-trio { flex-wrap: nowrap !important; }
+.value-trio li { white-space: nowrap !important; }
+@media (max-width: 900px){
+  .value-trio { flex-wrap: wrap !important; }  /* mobile stays wrapped */
+}
 
 
   </style>

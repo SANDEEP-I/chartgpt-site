@@ -1168,6 +1168,104 @@ html {
 .tagline{ margin-bottom:14px !important; }
 .lead{ margin:6px 0 14px !important; }
 .cta-row{ margin:18px 0 !important; }
+/* === FINAL HERO POLISH === */
+
+/* Better hero proportions and alignment */
+.hero {
+  grid-template-columns: 1.1fr 1fr !important;
+  gap: 52px !important;
+  align-items: center !important;
+  margin: 24px 0 80px !important;
+}
+.hero > div:first-child {
+  max-width: 620px !important;
+  padding-top: 8px !important;
+}
+
+/* Title + subtitle spacing */
+.eyebrow {
+  margin-bottom: 4px !important;
+  font-size: 24px !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
+}
+.tagline {
+  margin-bottom: 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+}
+.lead {
+  margin: 8px 0 14px !important;
+  line-height: 1.7 !important;
+}
+
+/* Buttons */
+.cta-row {
+  margin: 18px 0 16px !important;
+}
+.btn-primary,
+.btn-outline {
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+/* Iconic feature chips: aligned & centered nicely */
+.pill-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px 12px !important;
+  justify-content: flex-start !important;
+  max-width: 600px !important;
+  margin-top: 14px !important;
+}
+.pill {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(#ffffff, #f9fbff) !important;
+  border: 1px solid rgba(15,23,42,.06) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04) !important;
+  font-weight: 600 !important;
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+.pill:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08) !important;
+}
+.pill::before {
+  font-size: 16px;
+  display: inline-block;
+}
+.pill:nth-child(1)::before { content: "💬"; }
+.pill:nth-child(2)::before { content: "📊"; }
+.pill:nth-child(3)::before { content: "📈"; }
+.pill:nth-child(4)::before { content: "🧾"; }
+.pill:nth-child(5)::before { content: "🏢"; }
+
+/* Align video visually with text column */
+.video {
+  margin-top: 4px !important;
+}
+.video-inner {
+  max-width: 740px !important;
+}
+.video-top-row {
+  justify-content: space-between !important;
+  padding: 0 6px !important;
+}
+
+/* Section divider below hero */
+.hero::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(15,23,42,.06), rgba(15,23,42,.02) 40%, rgba(15,23,42,0));
+  margin: 32px 0 0;
+}
 
 
   </style>
@@ -1225,9 +1323,6 @@ html {
   <a class="btn-outline" href="#ai-roadmap">View Roadmap</a>
 </div>
 
-
-          <button class="btn-outline">View Roadmap</button>
-        </div>
 
         <div class="pill-row">
           <span class="pill">Ask in Natural Language</span>

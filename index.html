@@ -1269,6 +1269,91 @@ html {
 html { scroll-behavior: smooth; }
 .btn-primary, .btn-outline { text-decoration: none; display: inline-block; }
 
+/* === FINAL HERO ALIGNMENT & MICRO POLISH === */
+
+/* Center hero content slightly better on large screens */
+.hero {
+  grid-template-columns: 1.05fr 1fr !important; /* text slightly narrower */
+  gap: 56px !important;
+  align-items: center !important;
+  margin: 28px auto 84px !important;
+  max-width: 1220px !important;
+}
+
+/* Left column tighter spacing harmony */
+.hero > div:first-child {
+  max-width: 580px !important;
+  padding-top: 4px !important;
+}
+
+/* Title rhythm */
+.eyebrow {
+  font-size: 23px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-bottom: 4px !important;
+}
+.tagline {
+  font-size: clamp(30px, 3.4vw, 44px) !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  margin-bottom: 14px !important;
+}
+.lead {
+  line-height: 1.65 !important;
+  margin-bottom: 12px !important;
+}
+
+/* Buttons centered visually as one block */
+.cta-row {
+  margin: 18px 0 16px !important;
+  gap: 14px !important;
+}
+
+/* Pills: ensure perfect two-row alignment */
+.pill-row {
+  max-width: 600px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px 12px !important;
+  margin-top: 14px !important;
+}
+.pill {
+  flex: 1 1 180px !important;
+  justify-content: flex-start !important;
+  padding: 10px 14px !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  background: linear-gradient(#fff, #f9fbff) !important;
+  border: 1px solid rgba(15,23,42,.06) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,.03) !important;
+  font-weight: 600 !important;
+}
+.pill:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+
+/* Add emojis without shifting text */
+.pill::before {
+  font-size: 16px; margin-right: 8px; line-height: 1;
+}
+.pill:nth-child(1)::before { content: "💬"; }
+.pill:nth-child(2)::before { content: "📊"; }
+.pill:nth-child(3)::before { content: "📈"; }
+.pill:nth-child(4)::before { content: "🧾"; }
+.pill:nth-child(5)::before { content: "🏢"; }
+
+/* Subtle fade for hero divider */
+.hero::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(15,23,42,.06), rgba(15,23,42,.02) 40%, rgba(15,23,42,0));
+  margin-top: 36px;
+}
+
+/* Tighter “Why” section spacing harmony */
+#why.section-block {
+  margin-top: 60px !important;
+}
 
   </style>
 </head>

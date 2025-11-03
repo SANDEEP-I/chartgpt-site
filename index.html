@@ -1086,6 +1086,67 @@ html {
   font-size: 16px;
   line-height: 1;
 }
+    /* smooth scroll to #ai-roadmap */
+html { scroll-behavior: smooth; }
+
+/* ensure buttons never underline (even as <a>) */
+.btn-primary, .btn-outline {
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+/* smooth scroll to #ai-roadmap */
+html { scroll-behavior: smooth; }
+
+/* ensure buttons never underline (because they are <a>) */
+.btn-primary, .btn-outline {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Feature capsules — tidy 5-up layout on desktop, wrap on small screens */
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+  max-width: 620px;   /* keeps row tight under the hero copy */
+}
+@media (min-width: 1100px) {
+  .feature-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    max-width: none;
+  }
+}
+
+.feature {
+  background: linear-gradient(#ffffff, #f9fbff);
+  border: 1px solid rgba(15,23,42,.06);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centers labels for even look */
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.feature span { font-size: 16px; line-height: 1; }
+
+/* optional: bring video a touch closer to features */
+.video { margin-top: 16px; }
+
+/* keep two-column hero on desktop */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
 
 
   </style>
@@ -1139,11 +1200,11 @@ html {
         </p>
 
 <div class="cta-row">
-  <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">
-    Watch Demo
-  </a>
-  <a href="#ai-roadmap" class="btn-outline">View Roadmap</a>
+  <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">Watch Demo</a>
+  <a class="btn-outline" href="#ai-roadmap">View Roadmap</a>
 </div>
+
+
 
 
 <div class="feature-row">
@@ -1153,6 +1214,9 @@ html {
   <div class="feature"><span>🧾</span> Ad-hoc Reports</div>
   <div class="feature"><span>🏢</span> Enterprise-Ready BI</div>
 </div>
+
+
+
 
 
       <div class="video">

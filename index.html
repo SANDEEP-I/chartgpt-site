@@ -599,6 +599,64 @@ body {
   .section-block { margin-top: 44px; }
   .card { min-height: auto; }
 }
+/* === Hero section fine-tuning for enterprise polish === */
+
+/* Wider hero container and improved grid balance */
+.hero {
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+
+/* Smooth max-width for hero text for readability */
+.hero > div:first-child {
+  max-width: 580px;
+}
+
+/* Sharper heading weight and spacing */
+h1 {
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+/* Subheading line spacing for more air */
+.lead {
+  line-height: 1.7;
+  max-width: 540px;
+}
+
+/* Button alignment */
+.cta-row {
+  margin-top: 22px;
+  margin-bottom: 24px;
+}
+
+/* Video section visual lift */
+.video {
+  padding: 26px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+.video-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+.video small {
+  color: #475569;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* Make the section below the hero start with more breathing space */
+.section-block:first-of-type {
+  margin-top: 80px;
+}
 
   </style>
 </head>

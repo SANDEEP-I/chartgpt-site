@@ -788,6 +788,35 @@ body {
   .hero { gap: 32px; text-align: center; }
   .pill-row { justify-content: center; }
 }
+/* === FINAL OVERRIDES (paste just before </style>) === */
+.header-inner, .wrap { max-width: 1280px !important; }
+
+/* Hero balance */
+.hero { grid-template-columns: 1.1fr 1fr !important; gap: 52px !important; align-items: center !important; margin: 12px 0 72px !important; }
+.hero > div:first-child { max-width: 620px !important; }
+
+/* Headline/subhead rhythm */
+h1 { font-size: clamp(38px, 4.5vw, 56px) !important; line-height: 1.12 !important; letter-spacing: -0.02em !important; margin-bottom: 18px !important; }
+.lead { max-width: 600px !important; line-height: 1.7 !important; }
+
+/* Video presence */
+.video-inner { max-width: 800px !important; }
+.video { padding: 28px !important; }
+.video-frame { border: 1px solid rgba(15,23,42,.10) !important; box-shadow: 0 14px 32px rgba(2,6,23,.10) !important; }
+.video-top-row { justify-content: space-between !important; padding: 0 8px !important; }
+.video small { margin-top: 10px !important; color:#5b6b82 !important; }
+
+/* Pills */
+@media (min-width: 901px) { .pill-row { justify-content: flex-start !important; } }
+
+/* First section spacing */
+.section-block:first-of-type { margin-top: 92px !important; }
+
+/* Cards: equal heights + hover */
+@media (min-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr) !important; align-items: stretch !important; } }
+.card { height: 100% !important; display: flex !important; flex-direction: column !important; transition: box-shadow .18s ease, transform .18s ease !important; }
+.card p { flex: 1 !important; }
+.card:hover { box-shadow: 0 8px 26px rgba(2,6,23,.08) !important; transform: translateY(-1px) !important; }
 
     
 

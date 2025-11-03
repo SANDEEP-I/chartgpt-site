@@ -1054,152 +1054,6 @@ html {
 .card:nth-child(3) { animation-delay: 0.3s; }
 .contact-card { animation-delay: 0.4s; }
 
-    /* --- Feature capsule redesign --- */
-.feature-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
-  max-width: 620px;
-}
-
-.feature {
-  background: #fff;
-  border: 1px solid rgba(15,23,42,.06);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  transition: all 0.2s ease;
-}
-.feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-}
-
-.feature span {
-  font-size: 16px;
-  line-height: 1;
-}
-    /* smooth scroll to #ai-roadmap */
-html { scroll-behavior: smooth; }
-
-/* ensure buttons never underline (even as <a>) */
-.btn-primary, .btn-outline {
-  text-decoration: none;
-  display: inline-block;
-}
-
-
-/* smooth scroll to #ai-roadmap */
-html { scroll-behavior: smooth; }
-
-/* ensure buttons never underline (because they are <a>) */
-.btn-primary, .btn-outline {
-  text-decoration: none;
-  display: inline-block;
-}
-
-/* Feature capsules — tidy 5-up layout on desktop, wrap on small screens */
-.feature-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
-  max-width: 620px;   /* keeps row tight under the hero copy */
-}
-@media (min-width: 1100px) {
-  .feature-row {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    max-width: none;
-  }
-}
-
-.feature {
-  background: linear-gradient(#ffffff, #f9fbff);
-  border: 1px solid rgba(15,23,42,.06);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  justify-content: center;   /* centers labels for even look */
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.feature:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-}
-.feature span { font-size: 16px; line-height: 1; }
-
-/* optional: bring video a touch closer to features */
-.video { margin-top: 16px; }
-
-/* keep two-column hero on desktop */
-.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
-@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-
-    /* Two-column hero on desktop, stack on mobile */
-.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
-@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-
-/* Tidy feature chips ribbon (keeps row compact under the text) */
-.feature-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 20px; max-width: 620px; }
-@media (min-width: 1100px) { .feature-row { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-
-.feature {
-  background: linear-gradient(#ffffff, #f9fbff);
-  border: 1px solid rgba(15,23,42,.06);
-  border-radius: 12px;
-  padding: 10px 14px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #0f172a;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.feature:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
-.feature span { font-size: 16px; line-height: 1; }
-
-/* Small spacing tweak so the video sits comfortably */
-.video { margin-top: 0; }
-
-    /* 1) Balance the hero columns a touch + keep video comfortably sized */
-.hero{grid-template-columns:1.08fr 1fr;}
-.video-inner{max-width:660px;}         /* keeps iframe crisp without overpowering */
-.video{margin-top:4px;}               /* aligns a bit better with your H1 baseline */
-
-/* 2) Make the 5 feature chips feel like one deliberate ribbon */
-.feature-row{
-  max-width:680px;                    /* slightly wider than copy line length */
-  grid-template-columns:repeat(5,minmax(0,1fr));  /* force 5-up on desktop */
-}
-@media (max-width:1100px){
-  .feature-row{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
-}
-.feature{height:48px;}                /* consistent height */
-.feature span{min-width:18px;text-align:center;}
-
-/* 3) Subtle divider before the “Why” section for hierarchy */
-.hero{margin-bottom:56px;}
-.hero::after{
-  content:"";
-  display:block;
-  height:1px;
-  margin-top:44px;
-  background:linear-gradient(90deg, rgba(15,23,42,0), rgba(15,23,42,.08), rgba(15,23,42,0));
-}
-
 
   </style>
 </head>
@@ -1231,58 +1085,67 @@ html { scroll-behavior: smooth; }
 
   <div class="wrap">
     <!-- HERO -->
-<section class="hero">
-  <!-- LEFT COLUMN -->
-  <div>
-    <h1>The AI-Native Business Intelligence Platform</h1>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ChartGPT</p>
+<h1 class="tagline">The AI-Native Business Intelligence Platform</h1>
 
-    <!-- your eyebrow pills above the quote stay here -->
+<ul class="value-trio">
+  <li>Transforming Analytics with AI</li>
+  <li>Effortless Data Exploration</li>
+  <li>Intelligent &amp; Actionable Insights</li>
+</ul>
 
-    <p class="lead"><strong>“The future of analytics is search-driven, intelligent, and effortless.”</strong></p>
-    <p class="lead">
-      Users can ask questions in natural language and get <strong>instant insights</strong> as
-      KPIs, charts, tables, or reports — without dashboards, filters, or SQL.
-    </p>
 
-    <!-- CTAs -->
-    <div class="cta-row">
-      <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">Watch Demo</a>
-      <a class="btn-outline" href="#ai-roadmap">View Roadmap</a>
-    </div>
+        <p class="lead"><strong>“The future of analytics is search-driven, intelligent, and effortless.”</strong></p>
 
-    <!-- ICON CHIPS (keep these) -->
-    <div class="feature-row">
-      <div class="feature"><span>💬</span> Ask in Natural Language</div>
-      <div class="feature"><span>📊</span> Instant Charts &amp; KPIs</div>
-      <div class="feature"><span>📈</span> Dynamic Dashboards</div>
-      <div class="feature"><span>🧾</span> Ad-hoc Reports</div>
-      <div class="feature"><span>🏢</span> Enterprise-Ready BI</div>
-    </div>
-  </div>
+        <p class="lead">
+          Users can ask questions in natural language and get
+          <strong>instant insights</strong> as KPIs, charts, tables, or reports —
+          without dashboards, filters, or SQL.
+        </p>
 
-  <!-- RIGHT COLUMN (VIDEO) -->
-  <div class="video">
-    <div class="video-inner">
-      <div class="video-top-row">
-        <span>Demo Video — Built on Our MVP</span>
-        <span class="mvp-chip">MVP Live</span>
+        <div class="cta-row">
+          <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">
+  Watch Demo
+</a>
+          <button class="btn-outline">View Roadmap</button>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Ask in Natural Language</span>
+          <span class="pill">Instant Charts &amp; KPIs</span>
+          <span class="pill">Dynamic Dashboards</span>
+          <span class="pill">Ad-hoc Reports</span>
+          <span class="pill">Enterprise-Ready BI</span>
+        </div>
       </div>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/ah6EDlP_QCY?rel=0&modestbranding=1&playsinline=1&vq=hd1080"
-          title="ChartGPT MVP Demo"
-          style="border:0; width:100%; height:100%;"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          referrerpolicy="strict-origin-when-cross-origin">
-        </iframe>
-      </div>
-      <small>This demo runs on the live MVP — built end-to-end by the founder.</small>
-    </div>
-  </div>
-</section>
 
+      <div class="video">
+        <div class="video-inner">
+          <div class="video-top-row">
+            <span>Demo Video — Built on Our MVP</span>
+            <span class="mvp-chip">MVP Live</span>
+          </div>
+
+<div class="video-frame">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/ah6EDlP_QCY?rel=0&modestbranding=1&playsinline=1&vq=hd1080"
+    title="ChartGPT MVP Demo"
+    style="border:0; width:100%; height:100%;"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+    referrerpolicy="strict-origin-when-cross-origin">
+  </iframe>
+</div>
+
+
+
+          <small>This demo runs on the live MVP — built end-to-end by the founder.</small>
+        </div>
+      </div>
+    </section>
 
     <!-- WHY -->
     <section id="why" class="section-block anchor-section">

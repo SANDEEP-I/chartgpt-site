@@ -1117,6 +1117,57 @@ html {
 .pill-row .pill:nth-child(4)::before{ content: "🧾"; } /* Ad-hoc Reports */
 .pill-row .pill:nth-child(5)::before{ content: "🏢"; } /* Enterprise-Ready BI */
 
+/* === STABILIZE HERO LAYOUT + TIDY CHIPS (safe) === */
+
+/* Keep hero as a 2-column grid and prevent content from pushing columns */
+.hero{
+  display:grid !important;
+  grid-template-columns: 1.12fr 1fr !important;  /* text a touch wider */
+  gap:48px !important;
+  align-items:center !important;
+  margin: 14px 0 72px !important;
+}
+.hero > div:first-child{ max-width:640px !important; min-width:0 !important; }
+.video{ margin-top:0 !important; }
+.video-inner{ max-width:720px !important; }
+
+/* Chips: flexible, wrap neatly, stay inside the left column */
+.pill-row{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:10px 12px !important;
+  max-width:600px !important;     /* keeps the row contained */
+  margin-top:14px !important;
+}
+.pill{
+  flex:0 1 188px !important;      /* gives you 2 tidy rows on desktop */
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:8px !important;
+  padding:10px 14px !important;
+  border-radius:12px !important;
+  background:linear-gradient(#fff,#f9fbff) !important;
+  border:1px solid rgba(15,23,42,.06) !important;
+  box-shadow:0 1px 2px rgba(0,0,0,.04) !important;
+  font-size:14px !important;
+  white-space:nowrap !important;
+  transition:transform .18s ease, box-shadow .18s ease !important;
+}
+.pill:hover{ transform:translateY(-2px) !important; box-shadow:0 6px 16px rgba(0,0,0,.08) !important; }
+
+/* Icons for each pill (no HTML changes) */
+.pill-row .pill::before{ font-size:16px; line-height:1; display:inline-block; }
+.pill-row .pill:nth-child(1)::before{ content:"💬"; }  /* Ask in Natural Language */
+.pill-row .pill:nth-child(2)::before{ content:"📊"; }  /* Instant Charts & KPIs   */
+.pill-row .pill:nth-child(3)::before{ content:"📈"; }  /* Dynamic Dashboards      */
+.pill-row .pill:nth-child(4)::before{ content:"🧾"; }  /* Ad-hoc Reports          */
+.pill-row .pill:nth-child(5)::before{ content:"🏢"; }  /* Enterprise-Ready BI     */
+
+/* Slight rhythm polish */
+.tagline{ margin-bottom:14px !important; }
+.lead{ margin:6px 0 14px !important; }
+.cta-row{ margin:18px 0 !important; }
 
 
   </style>
@@ -1173,6 +1224,7 @@ html {
   <a class="btn-primary" href="https://youtu.be/ah6EDlP_QCY" target="_blank" rel="noopener noreferrer">Watch Demo</a>
   <a class="btn-outline" href="#ai-roadmap">View Roadmap</a>
 </div>
+
 
           <button class="btn-outline">View Roadmap</button>
         </div>

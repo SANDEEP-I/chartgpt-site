@@ -489,6 +489,117 @@
       color:#94a3b8;
       margin:60px 0 20px;
     }
+
+    /* ===== Enterprise polish overrides (drop-in) ===== */
+
+/* Wider page + perfectly aligned header/body widths */
+.header-inner,
+.wrap { max-width: 1240px; }
+
+/* Stronger hero visual hierarchy */
+h1 { font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1; letter-spacing: -0.02em; }
+.lead { max-width: 640px; }
+
+/* Hero layout: balanced columns, cleaner spacing */
+.hero {
+  grid-template-columns: 1.05fr 1fr;   /* more room for text, keeps video generous */
+  gap: 40px;
+  align-items: start;
+}
+
+/* Buttons: slightly larger + consistent height */
+.cta-row .btn-primary,
+.cta-row .btn-outline { padding: 12px 18px; font-size: 15px; border-radius: 12px; }
+
+/* Pill chips: more premium look, consistent sizing and spacing */
+.pill-row { max-width: none; gap: 10px 12px; }
+.pill {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid rgba(15, 23, 42, .06);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 20px rgba(0,0,0,.03);
+}
+
+/* Video card: larger, cleaner, with enterprise shadow + border */
+.video {
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, .08);
+  box-shadow: 0 18px 50px rgba(2, 6, 23, .08);
+  background: #fff;
+}
+.video-inner { max-width: 720px; margin: 0 auto; } /* broader but still elegant */
+.video-top-row {
+  margin-bottom: 12px;
+  gap: 12px;
+  color: #0f172a;
+}
+.mvp-chip {
+  background: #e8f1ff;
+  border: 1px solid rgba(37, 99, 235, .25);
+  color: #2563eb;
+  padding: 5px 10px;
+  font-weight: 700;
+}
+.video-frame {
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, .08);
+  box-shadow: 0 10px 28px rgba(2, 6, 23, .12);
+}
+.video small {
+  margin-top: 12px;
+  color: #64748b;
+  font-weight: 600;
+  font-style: normal; /* less “blog”, more enterprise */
+}
+
+/* Section headings: tighter rhythm, less vertical air */
+.section-block { margin-top: 56px; }
+.section-title { font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.01em; }
+.section-eyebrow { margin-bottom: 22px; }
+
+/* Cards grid: even heights + crisp shadows */
+.grid { gap: 24px; }
+.card {
+  display: flex; flex-direction: column;
+  min-height: 168px;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, .06);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 30px rgba(2,6,23,.04);
+}
+.card h2 { margin-bottom: 10px; }
+.card p { color: #475569; }
+
+/* Founder & contact cards: unify look with content cards */
+.founder-card,
+.contact-card {
+  border: 1px solid rgba(15, 23, 42, .06);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 12px 30px rgba(2,6,23,.04);
+  border-radius: 16px;
+}
+
+/* Header badge: align right edge and reduce glow */
+.badge {
+  border: 1px solid rgba(37, 99, 235, .25);
+  background: rgba(37, 99, 235, .08);
+  box-shadow: 0 6px 18px rgba(37,99,235,.10);
+}
+
+/* Subtle page background refinement for depth */
+body {
+  background:
+    radial-gradient(1200px 600px at 20% 15%, rgba(37,99,235,.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, var(--bg-start), var(--bg-end));
+}
+
+/* Responsive refinements */
+@media (max-width: 900px) {
+  .video-inner { max-width: 100%; }
+  .section-block { margin-top: 44px; }
+  .card { min-height: auto; }
+}
+
   </style>
 </head>
 <body>

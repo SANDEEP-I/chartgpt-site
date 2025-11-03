@@ -752,6 +752,44 @@ body {
   .section-block { margin-top: 44px; }
   .card { min-height: auto; }
 }
+    /* === Final enterprise polish (drop at end of <style>) === */
+
+/* Slightly wider canvas */
+.header-inner, .wrap { max-width: 1280px; }
+
+/* Hero: perfectly balanced columns + consistent baseline */
+.hero { grid-template-columns: 1.1fr 1fr; gap: 52px; align-items: center; }
+.hero > div:first-child { max-width: 620px; }
+
+/* Video card a bit larger and crisper */
+.video-inner { max-width: 760px; }
+.video { padding: 28px; }
+.video-frame { border: 1px solid rgba(15,23,42,.10); box-shadow: 0 14px 32px rgba(2,6,23,.10); }
+.video small { margin-top: 10px; color:#5b6b82; }
+
+/* Pills: align to left on desktop for a stronger grid line */
+@media (min-width: 901px) { .pill-row { justify-content: flex-start; } }
+
+/* Make the first section start a bit lower for breathing room */
+.section-block:first-of-type { margin-top: 88px; }
+
+/* Cards: exact 3-column grid on desktop + equal heights per row */
+@media (min-width: 1100px) {
+  .grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+}
+.card { height: 100%; display: flex; flex-direction: column; }
+.card p { flex: 1; }
+
+/* Card hover = subtle enterprise lift */
+.card:hover { box-shadow: 0 8px 26px rgba(2,6,23,.08); transform: translateY(-1px); transition: all .18s ease; }
+
+/* Mobile niceties */
+@media (max-width: 900px) {
+  .hero { gap: 32px; text-align: center; }
+  .pill-row { justify-content: center; }
+}
+
+    
 
 
   </style>
